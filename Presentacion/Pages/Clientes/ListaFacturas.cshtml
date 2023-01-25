@@ -1,0 +1,39 @@
+﻿@page
+@model Presentacion.Pages.Clientes.ListaFacturasModel
+@{
+}
+
+    
+    <section class="row mb-2" >
+        <div class="col-md-4 text-right">
+            <a asp-page="NuevaFactura" class="btn btn-info">Nueva Factura</a>
+        </div>
+        <h4 class="col-md-4 text-center">Lista de Facturas</h4>
+     
+        <div class="col-md-4 text-right">
+            <a asp-page="../Index" class="btn btn-outline-success">Volver</a>
+        </div>
+    </section>
+
+
+    <table class="table table-striped">
+        <tr class="table-success">
+            <th scope="col">Fecha</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Metodo de pago</th>
+            <th scope="col">Acciones</th>
+        </tr>
+            @foreach (var facturas in Model.ListFact){
+        <tr>
+            <td>@facturas.FechaFactura</td>
+            <td>@facturas.ValorTotal</td>
+            <td>@facturas.MetodoPago</td>
+
+            <td>
+                <a asp-page="DetalleFactura" asp-route-id="@facturas.FacturaId" class="btn btn-primary">Detalle</a>
+            </td>
+
+        </tr>
+    }
+    </table>
+

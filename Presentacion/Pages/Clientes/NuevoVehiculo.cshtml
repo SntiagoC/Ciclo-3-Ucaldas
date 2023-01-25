@@ -1,0 +1,74 @@
+﻿@page
+@model Presentacion.Pages.Clientes.NuevoVehiculoModel
+@{
+}
+
+    <h2 class="text-center">@Model.Titulo</h2>
+    <form method="post" class="container">
+        <input type="hidden" asp-for="vehiculos.VehiculoId">
+        
+        <div class="row justify-content-center">
+        
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.Placa" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.Placa" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.Marca" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.Marca" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.Color" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.Color" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.Modelo" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.Modelo" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.TipoVehiculo" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.TipoVehiculo" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.TipoCombustible" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.TipoCombustible" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.Cilindraje" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.Cilindraje" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.Kilometraje" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.Kilometraje" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.UltimoMantenimiento" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.UltimoMantenimiento" class="col-8 form-control datetimepicker-input">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.Estado" class="col-4 text-right"></label>
+            <input asp-for="vehiculos.Estado" class="col-8 form-control">
+        </div>
+
+        <div class="col-12 col-md-6 form-row mt-1">
+            <label asp-for="vehiculos.ClienteId" class="col-4 text-right"></label>
+            <select asp-for="vehiculos.ClienteId" class="col-8 form-control">
+            @foreach (var item in @Model.clientes)
+            { 
+             <option value="@item.ClienteId">@item.Nombres @item.NumeroDocumento</option>
+            }
+            </select>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-primary m-3">
+    </div>
+
+    </form>

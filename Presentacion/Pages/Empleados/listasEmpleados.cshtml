@@ -1,0 +1,53 @@
+﻿@page
+@model MyApp.Namespace.listasEmpleadosModel
+@{
+}
+
+<main class="container">
+    <section class="row">
+        <div class="col-md-4 text-right">
+        <h4 class="col-md-4 text-center">Empleado Activos</h4>
+        </div>
+    </section>
+    
+    <section class="row">
+        <div class="col-md-4 text-right">
+            <a asp-page="NuevoEmpleado" class="btn btn-info">Nuevo Empleado</a>
+        </div>
+        <br>
+        <div class="col-md-4 text-right">
+            <a asp-page="EditarEmpleados" class="btn btn-info">Editar Empleado</a>
+        </div>
+        
+
+    </section>
+    <br>
+   
+    <table class="table table-striped">
+        <tr class="table-primary">
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Telefono</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var Empleado in Model.listasEmpleados)
+    {
+        <tr>
+            <td>@Empleado.Nombres</td>
+            <td>@Empleado.Apellidos</td>
+            <td>@Empleado.NumeroDocumento</td>
+            <td>@Empleado.Cargo</td>
+            <td>
+                <a asp-page="./DetallesEmpleados" asp-route-Id="@Empleado.Id" class="btn btn-primary">Detalles</a>
+                <a asp-page="./NuevoEmpleado" asp-route-Id="@Empleado.Id" class="btn btn-success">Editar</a>
+                <a asp-page="./EliminarEmpleados" asp-route-Id="@Empleado.Id" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </table>
+    <div>
+        <a asp-page="../Index" class="btn btn-outline-success">Volver</a>
+    </div>
+</main>

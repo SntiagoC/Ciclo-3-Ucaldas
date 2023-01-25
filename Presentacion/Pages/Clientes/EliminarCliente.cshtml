@@ -1,0 +1,12 @@
+﻿@page
+@model Presentacion.Pages.Clientes.EliminarClienteModel
+@{
+}
+<h3>@Model.cual</h3>
+
+<h5 class="bg-warning">Esta seguro de borrar el  Cliente  @Model.cliente.Nombres @Model.cliente.TipoDocumento @Model.cliente.NumeroDocumento</h5>
+<form  method="post">
+<input type="hidden" asp-for="cliente.ClienteId">
+
+<input type="submit" value="Eliminar">
+</form>

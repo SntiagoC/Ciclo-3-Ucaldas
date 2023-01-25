@@ -1,0 +1,53 @@
+﻿@page
+@model Presentacion.Pages.Clientes.DetalleClienteModel
+@{
+}
+
+    <div class="row">
+
+       
+
+    <address class="col-md-4 fondo-claro-m p-4">
+    <strong> @Model.clientes.Nombres @Model.clientes.Apellidos</strong><br>
+    <abbr title="ID">@Model.clientes.TipoDocumento </abbr> @Model.clientes.NumeroDocumento<br>
+    <abbr title="Edad">Edad:</abbr>@Model.clientes.FechaNacimiento.ToString() 
+    </address>
+  
+
+
+        <div class="col-md-4 fondo-claro-a p-4">
+            
+           <h3 class="text-center">Datos de Contacto</h3>
+            <div class="form-group">
+                <p>Telefono: @Model.clientes.Telefono</p>
+                
+                <p>Email: @Model.clientes.Email</p>
+
+                <p>Direccion: @Model.clientes.Direccion </p>
+            </div>
+            
+        </div> 
+
+        <div class="col-md-4 p-4 fondo-claro-v">
+            <h4 class=" text-center">Mis Vehiculos</h4>
+          
+        @foreach (var vehiculo in @Model.vehiculos)
+            {
+        <div  class="row">
+            <a  asp-page="DetalleVehiculo" asp-route-id="@vehiculo.VehiculoId" class="col-4 bg-warning rounded border border-dark text-center p-3 mb-2">
+            @vehiculo.Placa </a>
+            <div class="col-4">@vehiculo.Marca</div>
+            <div class="col-4">@vehiculo.Modelo</div>
+        </div>
+            }
+
+        </div>
+    </div>
+
+
+<div class="container mt-2"> 
+    <a asp-page="NuevoCliente" asp-route-id="@Model.clientes.ClienteId" class="btn btn-success">Editar</a>
+    <a asp-page="EliminarCliente" asp-route-id="@Model.clientes.ClienteId" class="btn btn-danger">Eliminar</a>
+    <a asp-page="NuevoCliente" class="btn btn-info">Nuevo Cliente</a>
+    <a asp-page="ListaClientes" class="btn btn-primary">Volver</a>
+</div>

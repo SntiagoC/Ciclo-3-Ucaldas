@@ -1,0 +1,57 @@
+@page
+@model Presentacion.Pages.Clientes.DetalleVehiculo
+@{
+    ViewData["Title"] = "DetalleVehiculo";
+}
+
+<h1 class="text-center">Detalle Vechiculo</h1>
+<section class="row m-1">
+
+
+<div class="col-md-4 row m-0 p-2 fondo-claro-a">
+            <div class="col-12 col-md-6 text-info mt-1 align-middle">Placa</div>
+            <div class="col-12 col-md-6 bg-warning rounded border border-dark text-center p-3 mb-2">@Model.vehiculos.Placa</div>
+           
+            <div class="col-12 col-md-6 text-info align-middle">Marca</div>
+            <h5 class="col-12 col-md-6 text-center text-bold">@Model.vehiculos.Marca</h5>
+            
+            <div class="col-12 col-md-6  text-info align-middle">Modelo</div>
+            <h5 class="col-12 col-md-6 text-center text-bold">@Model.vehiculos.Modelo</h5>
+            
+            <div class="col-12 col-md-6  text-info align-middle">Color</div>
+            <h5 class="col-12 col-md-6 text-center text-bold">@Model.vehiculos.Color</h5>
+</div>
+
+
+<div class="col-md-4 row m-0 p-2 fondo-claro-m">
+    <div class="col-12 col-md-6 mt-1 text-info text-center">Tipo Vehiculo</div>
+    <div class="col-12 col-md-6 text-center text-bold">@Model.vehiculos.TipoVehiculo</div>
+    
+    <div class="col-12 col-md-6 text-info text-center">Tipo Combustible</div>
+    <div class="col-12 col-md-6 text-center text-bold">@Model.vehiculos.TipoCombustible</div>
+    
+    <div class="col-12 col-md-6 text-info text-center">Cilindraje</div>
+    <div class="col-12 col-md-6 text-center text-bold">@Model.vehiculos.Cilindraje</div>
+     
+    <div class="col-12 col-md-6 text-info text-center" >Kilometraje</div>   
+    <div class="col-12 col-md-6">@Model.vehiculos.Kilometraje</div>
+    
+    <div class="col-12 col-md-6 text-info text-center">Ultimo Manteniento</div>   
+    <div class="col-12 col-md-6">@Model.vehiculos.UltimoMantenimiento.ToString("yyyy MMMM dd")</div>
+
+    <div class="col-12 col-md-6 text-info text-center" >Estado del Vechiculo</div> 
+    <div class="col-12 col-md-6">@Model.vehiculos.Estado</div> 
+
+</div>
+<div class="col-md-4 row m-0 p-2 fondo-claro-v">
+    <h3 class="col-12 text-center">Propietario</h3>
+    
+    <div class="col-12 col-md-6 text-info text-center" >Nombres</div> 
+    <a class="col-12 col-md-6 btn btn-primary" asp-page="DetalleCliente" asp-route-id="@Model.clientes.ClienteId" >@Model.clientes.Nombres @Model.clientes.Apellidos</a>
+    
+    <div class="col-12 col-md-6 text-info text-center" >Identificacion</div> 
+    <div class="col-12 col-md-6" >@Model.clientes.TipoDocumento @Model.clientes.NumeroDocumento</div>
+
+</div>
+
+ </section>

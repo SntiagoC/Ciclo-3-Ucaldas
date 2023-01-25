@@ -1,0 +1,67 @@
+﻿@page
+@model Presentacion.Pages.Clientes.ListaClientesModel
+@{
+            var tel ="tel:+57";
+            var mail ="mailto:";
+
+}
+
+    
+    <section class="row mb-2" >
+        <div class="col-md-4 text-right">
+            <a asp-page="NuevoCliente" class="btn btn-info">Nuevo Cliente</a>
+        </div>
+        <h4 class="col-md-4 text-center">Lista de Clientes</h4>
+     
+        <div class="col-md-4 text-right">
+            <a asp-page="../Index" class="btn btn-outline-success">Volver</a>
+        </div>
+    </section>
+
+   
+    <table class="table table-striped">
+    <tr class="table-primary">
+      <th scope="col">Nombre Apellidos</th>
+      <th scope="col" class="d-none d-md-block">Documento</th>
+      <th scope="col">Tel<span class="col d-none d-md-flex"></th>
+      <th scope="col">Email</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    @foreach (var cliente in Model.Clientes){
+        <tr>
+            <td>@cliente.Nombres @cliente.Apellidos</td>
+            <td class="d-none d-md-block">@cliente.NumeroDocumento</td>
+            
+            <td>
+                <a href="@tel@cliente.Telefono">
+                    <i class="col bi bi-telephone-fill"></i>
+                </a>
+                <span class="col d-none d-md-flex">@cliente.Telefono</span>
+            </td>
+           
+            <td>
+                <a href="@mail@cliente.Email">
+                    <i class="col bi bi-envelope-fill"></i>
+                </a>
+               <span class="col d-none d-md-flex">@cliente.Email</span>
+            </td> 
+           
+            <td>
+                <a asp-page="DetalleCliente" asp-route-id="@cliente.ClienteId" class="btn btn-primary">
+                    <i class="bi bi-list-check"></i>
+                <span class="d-none d-md-flex">Detalle</span>
+                </a>
+                <a asp-page="NuevoCliente"  asp-route-id="@cliente.ClienteId" class="btn btn-success">
+                    <i class="bi bi-pencil-square"></i>
+                    <span class="d-none d-md-flex">Editar</span>
+                </a>
+                <a asp-page="EliminarCliente" asp-route-id="@cliente.ClienteId" class="btn btn-danger">
+                   <i class="bi-person-dash-fill"></i>
+                   <span class="d-none d-md-flex">Eliminar</span>
+                </a>
+            </td>
+
+        </tr>
+    }
+
+    </table>

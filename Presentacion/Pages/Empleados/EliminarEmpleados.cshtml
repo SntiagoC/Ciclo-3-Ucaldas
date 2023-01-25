@@ -1,0 +1,11 @@
+﻿@page
+@model MyApp.Namespace.EliminarEmpleadosModel
+@{
+}
+<h2>@Model.cual</h2>
+<h3 class="bg-warning">Eliminar al empleado @Model.Empleados.Nombres @Model.Empleados.Apellidos @Model.Empleados.TipoDocumento @Model.Empleados.NumeroDocumento @Model.Empleados.Cargo @Model.Empleados.Salario @Model.Empleados.FechaIngreso</h3>
+<form  method="post">
+<input type="hidden" asp-for="Empleados.Id">
+
+<input type="submit" value="Eliminar">
+</form>

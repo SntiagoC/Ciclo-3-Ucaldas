@@ -1,0 +1,49 @@
+﻿@page
+@model Presentacion.Pages.Clientes.ListaVehiculosModel
+@{
+}
+    
+    <section class="container row mb-3" >
+        <div class="col-md-4 text-right">
+            <a asp-page="NuevoVehiculo" class="btn btn-info">Nueva Vehiculo</a>
+        </div>
+        <h4 class="col-md-4 text-center">Lista de Vehiculos</h4>
+     
+        <div class="col-md-4 text-right">
+            <a asp-page="../Index" class="btn btn-outline-success">Volver</a>
+        </div>
+    </section>
+
+    <table class="table table-striped">
+    <tr class="bg-info">
+            
+      <th scope="col">Placa</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Color</th>
+      <th scope="col">Modelo</th>
+
+      <th scope="col">Acciones</th>
+      
+
+           
+        </tr>
+    @foreach (var vehiculo in Model.vehiculos)
+    {
+
+        <tr>
+        <td>@vehiculo.Placa</td>
+        <td>@vehiculo.Marca</td>
+        <td>@vehiculo.Color</td>
+        <td>@vehiculo.Modelo</td>
+        <td>
+            <a asp-page="DetalleVehiculo" asp-route-id="@vehiculo.VehiculoId" class="btn btn-primary">Detalle</a>
+            <a asp-page="NuevoVehiculo"  asp-route-id="@vehiculo.VehiculoId" class="btn btn-success">Editar</a>
+            <a asp-page="EliminarVehiculo" asp-route-id="@vehiculo.VehiculoId" class="btn btn-danger">Eliminar</a>
+        </td>
+
+
+        </tr>
+            
+    }
+
+    </table>

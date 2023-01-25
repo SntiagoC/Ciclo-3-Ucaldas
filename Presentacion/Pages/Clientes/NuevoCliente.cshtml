@@ -1,0 +1,63 @@
+﻿@page
+@model Presentacion.Pages.Clientes.NuevoClienteModel
+@{
+}
+
+<h1 class="text-center">@Model.Titulo</h1>
+
+<div class="d-flex justify-content-center">
+<form method="post" class="col-md-6 ">
+   
+    <input type="hidden" asp-for="cliente.ClienteId">
+
+<div class="form-group">
+    <label asp-for="cliente.Nombres"></label>
+    <input asp-for="cliente.Nombres" class="form-control">
+</div>
+
+<div class="form-group">
+    <label asp-for="cliente.Apellidos"></label>
+    <input asp-for="cliente.Apellidos" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label asp-for="cliente.TipoDocumento"></label>
+    <input asp-for="cliente.TipoDocumento" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label asp-for="cliente.NumeroDocumento"></label>
+    <input asp-for="cliente.NumeroDocumento" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label asp-for="cliente.FechaNacimiento"></label>
+    <input asp-for="cliente.FechaNacimiento" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label asp-for="cliente.Direccion"></label>
+    <input asp-for="cliente.Direccion" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label asp-for="cliente.Telefono"></label>
+    <input type="tel" asp-for="cliente.Telefono" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label asp-for="cliente.Email"></label>
+    <input type="email" asp-for="cliente.Email" class="form-control" >
+</div>
+
+<input type="submit" value="Enviar" class="btn btn-primary mb-3">
+
+</form>
+
+</div>

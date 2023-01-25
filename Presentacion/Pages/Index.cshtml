@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<section class="row justify-content-center"> 
+        <div class="d-none d-md-block col-11 col-md-5 col-xl-3 col-xxl-2 justify-content-center">
+            <img src="/img/logo.svg" class="img-responsive" alt="Scrump Sprint">
+
+        </div>
+        <div class="col-11 col-md-5 col-xl-3 col-xxl-2 justify-content-center">
+            <a asp-page="Clientes/ListaClientes" class="btn btn-primary m-1">Clientes</a>
+            <a asp-page="Clientes/ListaVehiculos" class="btn btn-success m-1">Vehiculos</a>
+            <a asp-page="Clientes/ListaFacturas" class="btn btn-warning m-1">Facturas</a>
+            
+            <a asp-page="Empleados/listasEmpleados" class="btn btn-secondary m-1">Empleado</a>
+          
+            <a asp-page=" " class="btn btn-danger m-1">Servicios</a>
+            <a asp-page=" " class="btn btn-info m-1">Empresa</a>
+
+        </div>
+  
+
+    </section>
+    <section> 
+            <h2 class="text-center">Mantenimiento Preventivo y Correctivo</h2>
+            <h4 class="text-center">Carlos, la unica manera que se me ocurrio de escrbirle, escribame a este correo o a este numero de whatsapp cs.sioga@gmail.com 3212643898</h4>
+            <h3 class="text-center">para autos y camionetas</h3>
+                @if(@Model.empresa!=null){
+                    <div class="text-center mt-3">
+                        @Model.empresa.direccion  Tel:  @Model.empresa.telefono
+                    </div>
+                }
+                
+    </section>
+
+    <section>
+        
+        @if (User.Identity.IsAuthenticated){
+            <table class="table table-sm">
+                @foreach (var claim in User.Claims)
+                {
+                    <tr>
+                        <td>@claim.Type</td>
+                        <td>@claim.Value</td>
+                    </tr>
+                }
+            </table>
+        }
+    </section>

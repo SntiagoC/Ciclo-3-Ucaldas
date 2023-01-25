@@ -1,0 +1,38 @@
+﻿@page
+@model MyApp.Namespace.DetallesEmpleadosModel
+@{
+}
+<main class="container">
+    <section class="row">
+
+        <h4 class="col-md-4 text-center">Detalles del empleado</h4>
+
+    </section>
+    <br>
+    <div> 
+        <table class="table table-striped">
+            <tr class="table-primary">
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Tipo de documento</th>
+            <th scope="col">Numero de documento</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Salario</th>
+            </tr>
+            <tr>
+                <td>@Model.Empleados.Nombres</td>
+                <td>@Model.Empleados.Apellidos</td>
+                <td>@Model.Empleados.TipoDocumento</td>
+                <td>@Model.Empleados.NumeroDocumento</td>
+                <td>@Model.Empleados.Cargo</td>
+                <td>@Model.Empleados.Salario</td>
+            </tr>
+        </table>
+    </div>
+    <div class="container mt-2"> 
+    <a asp-page="./NuevoEmpleado" asp-route-id="@Model.Empleados.Id" class="btn btn-success">Editar</a>
+    <a asp-page="./EliminarEmpleados" asp-route-id="@Model.Empleados.Id" class="btn btn-danger">Eliminar</a>
+    <a asp-page="./listasEmpleados" class="btn btn-primary">Volver</a>
+    </div>
+
+    
